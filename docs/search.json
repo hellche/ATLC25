@@ -1,9 +1,9 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
+    "objectID": "index.html#funded-and-unfunded-science-in-russia-a-new-dataset-and-longitudinal-analysis",
+    "href": "index.html#funded-and-unfunded-science-in-russia-a-new-dataset-and-longitudinal-analysis",
     "title": "ATLC25",
-    "section": "",
-    "text": "ATLC25\n\n\nSupplementary Materials.\n\n\nFunded and unfunded science in Russia: A new dataset and longitudinal analysis\nAuthors (in alphabetical order): Elena Chechik, Xinzhe Li, Vinicius Muraro, Katie Spoon\n\n\n\n\n\n\n\n\n\n\n\n\nFigure S1: An example of a project card from which data was scraped.\n\n\n\n\nNote: The card was automatically translated into English for the convenience of readers; the original dataset is in Russian.\n\n\n\n\nFigure S2: Proportion of supported applications by gender.\n\n\n\n\n\n\n\n\n\n\n\n\nFigure S3: Proportion of supported applications by PI experiance.\n\n\n\n\n\n\n\n\n\n\n\n\nTable S4. Gender assignment and number of grant applications.\nGender assignment. Female-specific endings of Russian family names include “-ва”, “-ая”, “-на”. Male-specific endings of family names include “-ов”, “-ий”, “-ин”, “-ев”, “-ый.”\n\n\n\n\n \n  \n    Field \n    Overall (N=304173) \n  \n \n\n  \n      female \n    57721 (19.0%) \n  \n  \n      male \n    185593 (61.0%) \n  \n  \n      unknown \n    60859 (20.0%)"
+    "section": "Funded and unfunded science in Russia: A new dataset and longitudinal analysis",
+    "text": "Funded and unfunded science in Russia: A new dataset and longitudinal analysis\nAuthors (in alphabetical order): Elena Chechik, Xinzhe Li, Vinicius Muraro, Katie Spoon\n\n\n\n\n\n\n\n\n\n\n\nFigure S1: An example of a project card from which data was scraped.\n\n\n\n\nNote: The card was automatically translated into English for the convenience of readers; the original dataset is in Russian.\n\n\n\n\nFigure S2: Proportion of supported applications by gender.\n\n\n\n\n\n\n\n\n\n\n\n\nFigure S3: Proportion of supported applications by PI experiance.\n\n\n\n\n\n\n\n\n\n\n\n\nTable S4. Gender assignment and number of grant applications.\nGender assignment. Female-specific endings of Russian family names include “-ва”, “-ая”, “-на”. Male-specific endings of family names include “-ов”, “-ий”, “-ин”, “-ев”, “-ый.”\n\n\n\n\n \n  \n    Field \n    Overall (N=304173) \n  \n \n\n  \n      female \n    57721 (19.0%) \n  \n  \n      male \n    185593 (61.0%) \n  \n  \n      unknown \n    60859 (20.0%)"
   }
 ]
