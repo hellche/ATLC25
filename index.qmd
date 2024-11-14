@@ -1,0 +1,174 @@
+---
+# title: "Supplementary Materials"
+# author: ""
+# org: ""
+---
+
+###### ATLC25
+
+### Supplementary Materials
+
+# Funded and unfunded science in Russia: A new dataset and longitudinal analysis
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,  warning = FALSE, message =  FALSE)
+```
+
+```{r packages}
+library(tidyverse)
+library(table1)
+library(DT)
+library(kableExtra)
+```
+
+```{r pallets}
+col_gender <- c("#ffe043","#b3b3b3")
+col_gap <- c("#91C45A","#C19AD6")
+```
+
+```{r data}
+grants_data <-  read_csv("data/grants_final.csv") %>%
+  mutate(area_name = case_when(area_name == "IT" ~ "Information Technology",
+                               TRUE ~ area_name)) %>% 
+  mutate(young = case_when(type_mol_tot == TRUE ~ "Early Career PI",
+                           TRUE ~ "Non-Early Career PI"))
+```
+
+<br>
+
+### Figure S1: An example of a project card from which data was scraped.
+
+
+<center>![](pics/application_card_sample.png){width="80%"}</center>
+
+<p style="text-align: center; font-size: 0.9em; color: gray;">Note: The card was automatically translated into English for the convenience of readers; the original dataset is in Russian.</p>
+
+<br>
+
+### Figure S2: Proportion of supported applications by gender.
+
+
+```{r}
+#| fig-align: 'center'
+#| fig-height: 3
+
+lvls <- grants_data %>% 
+  filter(gender != "unknown") %>% 
+  filter(area_name != "NA" & area_name != "unknown") %>% 
+  group_by(gender, area_name, status) %>% count() %>% ungroup() %>% 
+  group_by(gender, area_name) %>% 
+  mutate(sh = round(100 * n / sum(n), digits = 2)) %>% 
+  filter(status == "accepted") %>% 
+  filter(gender == "male") %>% arrange(desc(sh))
+
+lvls <- as.character(lvls$area_name)
+
+grants_data %>% 
+  filter(gender != "unknown") %>% 
+  filter(area_name != "NA" & area_name != "unknown") %>%
+  group_by(gender, area_name, status) %>% count() %>% ungroup() %>% 
+  group_by(gender, area_name) %>% 
+  mutate(sh = round(100 * n / sum(n), digits = 1)) %>% 
+  filter(status == "accepted") %>% 
+  mutate(area_name = factor(area_name, levels = lvls)) %>% 
+  
+  ggplot() +
+  geom_col(aes(x = area_name, y = sh, fill = gender), 
+           color = "black", size = 0.1,
+           position = "dodge", width = 0.8,  
+           alpha = 0.8)+
+  geom_text(aes(x = area_name, y = sh + 2, group = gender, label = sh), 
+            position = position_dodge(width = 0.8), size = 3) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 10)) +
+  scale_y_continuous(breaks = c(0, 10, 20, 30 ,40, 50)) +
+  scale_fill_manual(values = col_gender) +
+  labs(fill = "",
+       y = "Supported Applications (%)") + #,
+  theme_bw() +
+  theme(legend.title = element_blank(),
+        legend.position = "top",
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(size = 8),
+        plot.caption = element_text(size = 8, hjust = -0, face = "italic", color = "black"),
+        panel.grid.minor = element_blank(),
+        panel.grid.major = element_blank()) 
+
+```
+
+
+<br>
+
+### Figure S3: Proportion of supported applications by PI experiance.
+
+```{r}
+#| fig-align: 'center'
+#| fig-height: 3
+
+lvls <- grants_data %>% 
+  #filter(gender != "unknown") %>% 
+  filter(area_name != "NA" & area_name != "unknown") %>% 
+  group_by(young, area_name, status) %>% count() %>% ungroup() %>% 
+  group_by(young, area_name) %>% 
+  mutate(sh = round(100 * n / sum(n), digits = 2)) %>% 
+  filter(status == "accepted") %>% 
+  filter(young == "Non-Early Career PI") %>% arrange(desc(sh))
+
+lvls <- as.character(lvls$area_name)
+
+grants_data %>% 
+  #filter(gender != "unknown") %>% 
+  filter(area_name != "NA" & area_name != "unknown") %>%
+  group_by(young, area_name, status) %>% count() %>% ungroup() %>% 
+  group_by(young, area_name) %>% 
+  mutate(sh = round(100 * n / sum(n), digits = 1)) %>% 
+  filter(status == "accepted") %>% 
+  mutate(area_name = factor(area_name, levels = lvls)) %>% 
+  
+  ggplot() +
+  geom_col(aes(x = area_name, y = sh, fill = young), 
+           color = "black", size = 0.1,
+           position = "dodge", width = 0.8,  
+           alpha = 0.8)+
+  geom_text(aes(x = area_name, y = sh + 2, group = young, label = sh), 
+            position = position_dodge(width = 0.8), size = 3) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 10)) +
+  scale_y_continuous(breaks = c(0, 10, 20, 30 ,40, 50)) +
+  scale_fill_manual(values = col_gap) +
+  labs(fill = "",
+       y = "Supported Applications (%)") + #,
+  theme_bw() +
+  theme(legend.title = element_blank(),
+        legend.position = "top",
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(size = 8),
+        plot.caption = element_text(size = 8, hjust = -0, face = "italic", color = "black"),
+        panel.grid.minor = element_blank(),
+        panel.grid.major = element_blank()) 
+
+```
+
+<br>
+
+### Table S4. Gender assignment and number of grant applications.
+
+**Gender assignment.** Female-specific endings of Russian family names include *"-ва", "-ая", "-на"*. Male-specific endings of family names include *"-ов", "-ий", "-ин", "-ев", "-ый."*
+
+```{r}
+#| fig-align: 'center'
+
+Tab_1 <- table1(~ gender, data = grants_data)
+
+Tab_1 <- as.data.frame(Tab_1)[-1, ]
+Tab_1 <- Tab_1[-1, ]
+rownames(Tab_1) <- NULL
+
+kable(Tab_1,
+      align = c("l","c"),
+      col.names = c("Field","Overall<br/> (N=304173)"),
+      escape = FALSE) %>% 
+  kable_styling(full_width = F, position = "center", font_size = 12)
+  
+```
+
+
+

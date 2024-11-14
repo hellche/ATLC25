@@ -1,0 +1,25 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  search: false
+  title: "ATLC25"
+  # navbar:
+  #   right:
+  # - text: "Supplementary Materials"
+  #   # file: files/Poster_Chechik_STI2023.pdf
+  #   # file: https://hellche.github.io/files/Chechik_STI2023_Poster.pdf
+  # # - icon: github
+  # #   href: https://github.com/hellche/grant_applications
+  # #   aria-label: GitHub
+  # # - icon: twitter
+  # #   href: https://twitter.com/hellche
+  # #   aria-label: Twitter
+format:
+  html:
+    theme: Simplex
+    css: styles.css
+    # toc: true
+
+editor: visual
