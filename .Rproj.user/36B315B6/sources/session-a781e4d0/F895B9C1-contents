@@ -4,11 +4,11 @@
 # org: ""
 ---
 
-###### ATLC25
+##### ATLC25
 
-### Supplementary Materials
+## Supplementary Materials: Funded and unfunded science in Russia: A new dataset and longitudinal analysis
 
-# Funded and unfunded science in Russia: A new dataset and longitudinal analysis
+**Authors (in alphabetical order):** *Elena Chechik, Xinzhe Li, Vinicius Muraro, Katie Spoon*
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE,  warning = FALSE, message =  FALSE)
@@ -38,15 +38,17 @@ grants_data <-  read_csv("data/grants_final.csv") %>%
 
 ### Figure S1: An example of a project card from which data was scraped.
 
-
 <center>![](pics/application_card_sample.png){width="80%"}</center>
 
-<p style="text-align: center; font-size: 0.9em; color: gray;">Note: The card was automatically translated into English for the convenience of readers; the original dataset is in Russian.</p>
+<p style="text-align: center; font-size: 0.9em; color: gray;">
+
+Note: The card was automatically translated into English for the convenience of readers; the original dataset is in Russian.
+
+</p>
 
 <br>
 
 ### Figure S2: Proportion of supported applications by gender.
-
 
 ```{r}
 #| fig-align: 'center'
@@ -94,7 +96,6 @@ grants_data %>%
         panel.grid.major = element_blank()) 
 
 ```
-
 
 <br>
 
@@ -169,6 +170,3 @@ kable(Tab_1,
   kable_styling(full_width = F, position = "center", font_size = 12)
   
 ```
-
-
-

@@ -3,7 +3,7 @@
     "path": "~/Desktop/ATLC25/index.qmd",
     "project_path": "index.qmd",
     "type": "quarto_markdown",
-    "hash": "0",
+    "hash": "3774468342",
     "contents": "",
     "dirty": false,
     "created": 1731624240976.0,
@@ -12,15 +12,20 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "172,0",
-        "scrollLine": "155"
+        "cursorPosition": "8,0",
+        "scrollLine": "0",
+        "rmdVisualMode": "true",
+        "rmdVisualWrapConfigured": "true",
+        "docOutlineVisible": "1",
+        "rmdVisualModeLocation": "182:15.555556297302246",
+        "rmdVisualCollapsedChunks": ""
     },
     "folds": "",
-    "lastKnownWriteTime": 1731623977,
+    "lastKnownWriteTime": 1731625343,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1731623977,
+    "last_content_update": 1731625343611,
     "read_only": false,
     "read_only_alternatives": []
 }
